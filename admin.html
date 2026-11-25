@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#082638">
+  <title>Parent Controls · Nikki Nik's Magic Meter</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./config.js"></script>
+  <script defer src="./admin.js"></script>
+</head>
+<body class="admin-body">
+  <main class="admin-shell">
+    <div class="admin-top"><span class="admin-top-label">✦ NIKKI NIK'S MAGIC METER</span><span class="parent-only">PARENT CONTROL ROOM</span></div>
+    <header class="admin-header"><div class="spark-icon">✦</div><div><p class="eyebrow admin-eyebrow">Santa's Workshop · Authorized parents</p><h1>Make a little <em>magic.</em></h1><p>Adjust the level, write a note from Nikki Nik, then publish it to the DAKboard screen.</p></div></header>
+    <div class="setup-notice" id="setup-notice">🔐 GitHub-only setup. Create a <a id="settings-token" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">fine-grained access token</a> for <strong id="repo-path">your repository</strong>, with <strong>Contents: Read and write</strong>. Paste it here to publish; it stays in this page's memory only, and is cleared if you close or reload the page.</div>
+    <section class="auth-bar" aria-label="GitHub repository authorization"><div><div class="auth-label">GITHUB REPOSITORY CONNECTION</div><div class="auth-state"><span class="live-dot muted" id="auth-dot"></span><span id="auth-text">Not connected</span></div></div><div class="auth-buttons"><div class="token-entry" id="token-entry"><label class="token-label" for="token">GitHub fine-grained access token</label><input id="token" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="github_pat_…" aria-label="GitHub access token"></div><button id="connect" class="button button-gold">Connect</button><button id="disconnect" class="button button-quiet" hidden>Disconnect</button></div></section>
+    <section class="admin-grid">
+      <div class="control-panel">
+        <div class="panel-heading"><span>01</span><h2>Set magic level</h2></div>
+        <div class="big-control-value"><output id="level-output" for="level-range">75</output><span>%</span></div>
+        <input id="level-range" type="range" min="0" max="100" step="1" value="75" aria-label="Magic level percentage">
+        <div class="range-ticks"><span>0 · LOW</span><span>50 · BUILDING</span><span>100 · FULL</span></div>
+        <div class="adjust-row"><button class="button adjust" data-step="-10">−10</button><button class="button adjust" data-step="-5">−5</button><button class="button adjust" data-step="5">+5</button><button class="button adjust" data-step="10">+10</button></div>
+        <div class="field-label">MAGIC PRESETS</div>
+        <div class="preset-row"><button class="preset" data-value="15"><span>❄</span><strong>15%</strong><small>Low</small></button><button class="preset" data-value="40"><span>☃</span><strong>40%</strong><small>Building</small></button><button class="preset" data-value="75"><span>✨</span><strong>75%</strong><small>Sparkling</small></button><button class="preset" data-value="100"><span>⭐</span><strong>100%</strong><small>Full magic</small></button></div>
+        <div class="panel-divider"></div>
+        <div class="panel-heading second"><span>02</span><h2>Write a message</h2></div>
+        <label class="field-label" for="message">A NOTE FROM NIKKI NIK</label>
+        <textarea id="message" maxlength="220" rows="4" placeholder="The North Pole is full of Christmas cheer tonight!">Nikki Nik says the Christmas magic is growing!</textarea>
+        <div class="character-note"><span>Appears beneath the meter</span><span id="char-count">48 / 220</span></div>
+        <div class="publish-area"><button id="publish" class="button button-publish" disabled>✦ &nbsp; Publish to Magic Meter</button><p id="save-status" class="save-status" role="status" aria-live="polite">Connect with your GitHub token to publish.</p></div>
+      </div>
+      <aside class="preview-panel"><div class="preview-heading"><h2>Live-look preview</h2><span id="preview-state">UNPUBLISHED CHANGES</span></div><div class="preview-scene"><div class="preview-stars">✧ &nbsp; ✦ &nbsp; ✧</div><div class="preview-caption">NORTH POLE MAGIC</div><div class="preview-value" id="preview-number">75%</div><div class="preview-track"><div class="preview-bar" id="preview-bar" style="width:75%"></div></div><div class="preview-status" id="preview-status">SPARKLING STRONG!</div><p class="preview-message" id="preview-message">Nikki Nik says the Christmas magic is growing!</p></div><div class="preview-details"><div><span>Source</span><strong>GitHub repository · magic.json</strong></div><div><span>Meter update</span><strong>GitHub Raw / Pages sync</strong></div><div><span>Security</span><strong>GitHub token · Contents write</strong></div></div><a href="./index.html" class="preview-link" target="_blank" rel="noopener noreferrer">Open full-screen magic meter ↗</a><a id="repo-link" href="https://github.com" class="preview-link" target="_blank" rel="noopener noreferrer">Open GitHub repository ↗</a></aside>
+    </section>
+    <footer class="admin-footer">Parent-only updates. The display link is safe for DAKboard; this admin page requires a scoped GitHub token with write access to save changes. Do not share your token with anyone.</footer>
+  </main>
+</body>
+</html>
